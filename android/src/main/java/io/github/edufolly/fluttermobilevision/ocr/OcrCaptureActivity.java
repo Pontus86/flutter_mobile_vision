@@ -20,8 +20,6 @@ import io.github.edufolly.fluttermobilevision.util.MobileVisionException;
 
 public final class OcrCaptureActivity extends AbstractCaptureActivity<OcrGraphic> {
 
-    public static ArrayList<MyTextBlock> listAll = new ArrayList<>();
-
     @SuppressLint("InlinedApi")
     protected void createCameraSource() throws MobileVisionException {
         Context context = getApplicationContext();
@@ -77,8 +75,8 @@ public final class OcrCaptureActivity extends AbstractCaptureActivity<OcrGraphic
                 }, 500); //500 milliseconds
             }
             String capturedText2 = "";
-            for(int j=0; j < list.size(); j++){
-                capturedText2 += "\n" + (list.get(j)).getValue();
+            for(int j=0; j < graphicOverlay.listAll.size(); j++){
+                capturedText2 += "\n" + (graphicOverlay.listAll.get(j)).getValue();
             }
             Log.e("Captured text2", capturedText2);
 

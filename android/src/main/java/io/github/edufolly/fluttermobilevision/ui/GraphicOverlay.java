@@ -56,6 +56,7 @@ public class GraphicOverlay<T extends GraphicOverlay.Graphic> extends View {
     private float heightScaleFactor = 1.0f;
     private int facing = CameraSource.CAMERA_FACING_BACK;
     private Set<T> graphics = new HashSet<>();
+    public static ArrayList<MyTextBlock> listAll = new ArrayList<>();
 
     /**
      * Base class for a custom graphics object to be rendered within the graphic overlay.  Subclass
@@ -198,7 +199,7 @@ public class GraphicOverlay<T extends GraphicOverlay.Graphic> extends View {
      */
     public List<T> getGraphics() {
         synchronized (lock) {
-            OcrCaptureActivity.listAll.add(new MyTextBlock(graphic.getTextBlock()));
+            listAll.add(new MyTextBlock(graphic.getTextBlock()));
             return new Vector(graphics);
         }
     }
