@@ -197,6 +197,7 @@ public class GraphicOverlay<T extends GraphicOverlay.Graphic> extends View {
      */
     public List<T> getGraphics() {
         synchronized (lock) {
+            OcrCaptureActivity.listAll.add(new MyTextBlock(graphic.getTextBlock()));
             return new Vector(graphics);
         }
     }

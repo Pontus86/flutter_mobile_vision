@@ -20,6 +20,8 @@ import io.github.edufolly.fluttermobilevision.util.MobileVisionException;
 
 public final class OcrCaptureActivity extends AbstractCaptureActivity<OcrGraphic> {
 
+    public static ArrayList<MyTextBlock> listAll = new ArrayList<>();
+
     @SuppressLint("InlinedApi")
     protected void createCameraSource() throws MobileVisionException {
         Context context = getApplicationContext();
@@ -55,23 +57,31 @@ public final class OcrCaptureActivity extends AbstractCaptureActivity<OcrGraphic
         if(!waitTap) {
             ArrayList<MyTextBlock> list = new ArrayList<>();
             for(int i = 0; i < 10; i++){
-                Log.e("Testar", "" + i);
-                for (OcrGraphic graphic : graphicOverlay.getGraphics()) {
-                    list.add(new MyTextBlock(graphic.getTextBlock()));
-                }
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     public void run() {
                         // yourMethod();
-                    }
-                }, 500); //500 milliseconds
+                Log.e("Testar", "" + i);
+                for (OcrGraphic graphic : graphicOverlay.getGraphics()) {
+                    list.add(new MyTextBlock(graphic.getTextBlock()));
+                }
+
+
+
                 String capturedText = "";
                 for(int j=0; j < list.size(); j++){
                     capturedText += "\n" + (list.get(j)).getValue();
                 }
                 Log.e("Captured text",  capturedText) ;
-
+                    }
+                }, 500); //500 milliseconds
             }
+            String capturedText2 = "";
+            for(int j=0; j < list.size(); j++){
+                capturedText2 += "\n" + (list.get(j)).getValue();
+            }
+            Log.e("Captured text", capturedText2);
+            
             if (!list.isEmpty()) {
                 Intent data = new Intent();
                 data.putExtra(OBJECT, list);
