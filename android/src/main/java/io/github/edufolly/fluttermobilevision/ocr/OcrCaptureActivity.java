@@ -65,9 +65,11 @@ public final class OcrCaptureActivity extends AbstractCaptureActivity<OcrGraphic
                         // yourMethod();
                     }
                 }, 500); //500 milliseconds
+                String capturedText = "";
                 for(int j=0; j < list.size(); j++){
-                    Log.e("Captured text",  "" + (list.get(j)).getValue()) ;
+                    capturedText += "\n" + (list.get(j)).getValue();
                 }
+                Log.e("Captured text",  capturedText) ;
 
             }
             if (!list.isEmpty()) {
