@@ -51,6 +51,27 @@ public final class OcrCaptureActivity extends AbstractCaptureActivity<OcrGraphic
 
     protected boolean onTap(float rawX, float rawY) {
         if(!waitTap) {
+            ArrayList<MyTextBlock> list = new ArrayList<>();
+            for(int i = 0; i < 10; i++){
+                Log.e("Testar", i);
+                if (multiple) {
+                    for (OcrGraphic graphic : graphicOverlay.getGraphics()) {
+                        list.add(new MyTextBlock(graphic.getTextBlock()));
+                    }
+                } else {
+                    OcrGraphic graphic = graphicOverlay.getBest(rawX, rawY);
+                    if (graphic != null && graphic.getTextBlock() != null) {
+                        list.add(new MyTextBlock(graphic.getTextBlock()));
+                    }
+                }
+                if (!list.isEmpty()) {
+                    Intent data = new Intent();
+                    data.putExtra(OBJECT, list);
+                    setResult(CommonStatusCodes.SUCCESS, data);
+                    finish();
+                    return true;
+                }
+            }
             return false;
         }
 
