@@ -59,7 +59,12 @@ public final class OcrCaptureActivity extends AbstractCaptureActivity<OcrGraphic
                 for (OcrGraphic graphic : graphicOverlay.getGraphics()) {
                     list.add(new MyTextBlock(graphic.getTextBlock()));
                 }
-                (new Handler()).postDelayed(this::yourMethod, 500);
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    public void run() {
+                        // yourMethod();
+                    }
+                }, 500); //500 milliseconds
             }
             if (!list.isEmpty()) {
                 Intent data = new Intent();
