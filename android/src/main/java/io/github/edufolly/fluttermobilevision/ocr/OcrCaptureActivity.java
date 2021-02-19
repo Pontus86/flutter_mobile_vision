@@ -65,8 +65,8 @@ public final class OcrCaptureActivity extends AbstractCaptureActivity<OcrGraphic
                         // yourMethod();
                     }
                 }, 500); //500 milliseconds
-                for(var i=0; i < list.size();i++){
-                    Log.e("Captured text",  list[i].getValue());
+                for(int j=0; j < list.size(); j++){
+                    Log.e("Captured text",  "" + list[j].getValue()) ;
                 }
 
             }
