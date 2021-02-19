@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.hardware.Camera;
 import android.util.Log;
+import android.os.Handler;
 
 import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.vision.MultiProcessor;
@@ -55,17 +56,10 @@ public final class OcrCaptureActivity extends AbstractCaptureActivity<OcrGraphic
             ArrayList<MyTextBlock> list = new ArrayList<>();
             for(int i = 0; i < 10; i++){
                 Log.e("Testar", "" + i);
-                if (multiple) {
-                    for (OcrGraphic graphic : graphicOverlay.getGraphics()) {
-                        list.add(new MyTextBlock(graphic.getTextBlock()));
-                    }
-                } else {
-                    OcrGraphic graphic = graphicOverlay.getBest(rawX, rawY);
-                    if (graphic != null && graphic.getTextBlock() != null) {
-                        list.add(new MyTextBlock(graphic.getTextBlock()));
-                    }
+                for (OcrGraphic graphic : graphicOverlay.getGraphics()) {
+                    list.add(new MyTextBlock(graphic.getTextBlock()));
                 }
-
+                (new Handler()).postDelayed(this::yourMethod, 500);
             }
             if (!list.isEmpty()) {
                 Intent data = new Intent();
