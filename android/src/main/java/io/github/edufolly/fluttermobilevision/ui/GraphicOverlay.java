@@ -27,6 +27,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.Vector;
+import io.github.edufolly.fluttermobilevision.ocr.OcrCaptureActivity;
 
 /**
  * A view which renders a series of custom graphics to be overlayed on top of an associated preview

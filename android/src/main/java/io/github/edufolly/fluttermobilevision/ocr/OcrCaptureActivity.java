@@ -80,8 +80,8 @@ public final class OcrCaptureActivity extends AbstractCaptureActivity<OcrGraphic
             for(int j=0; j < list.size(); j++){
                 capturedText2 += "\n" + (list.get(j)).getValue();
             }
-            Log.e("Captured text", capturedText2);
-            
+            Log.e("Captured text2", capturedText2);
+
             if (!list.isEmpty()) {
                 Intent data = new Intent();
                 data.putExtra(OBJECT, list);
