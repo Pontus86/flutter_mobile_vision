@@ -65,13 +65,14 @@ public final class OcrCaptureActivity extends AbstractCaptureActivity<OcrGraphic
                         list.add(new MyTextBlock(graphic.getTextBlock()));
                     }
                 }
-                if (!list.isEmpty()) {
-                    Intent data = new Intent();
-                    data.putExtra(OBJECT, list);
-                    setResult(CommonStatusCodes.SUCCESS, data);
-                    finish();
-                    return true;
-                }
+
+            }
+            if (!list.isEmpty()) {
+                Intent data = new Intent();
+                data.putExtra(OBJECT, list);
+                setResult(CommonStatusCodes.SUCCESS, data);
+                finish();
+                return true;
             }
             return false;
         }
