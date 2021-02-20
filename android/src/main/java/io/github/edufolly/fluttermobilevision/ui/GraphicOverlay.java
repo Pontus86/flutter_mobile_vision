@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.Vector;
 import io.github.edufolly.fluttermobilevision.ocr.OcrCaptureActivity;
+import io.github.edufolly.fluttermobilevision.ocr.MyTextBlock;
 
 /**
  * A view which renders a series of custom graphics to be overlayed on top of an associated preview
