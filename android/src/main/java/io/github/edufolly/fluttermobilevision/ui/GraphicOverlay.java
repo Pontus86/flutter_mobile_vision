@@ -29,6 +29,8 @@ import java.util.Set;
 import java.util.Vector;
 import io.github.edufolly.fluttermobilevision.ocr.OcrCaptureActivity;
 import io.github.edufolly.fluttermobilevision.ocr.MyTextBlock;
+import io.github.edufolly.fluttermobilevision.ocr.OcrGraphic;
+import java.util.ArrayList;
 
 /**
  * A view which renders a series of custom graphics to be overlayed on top of an associated preview
@@ -200,7 +202,9 @@ public class GraphicOverlay<T extends GraphicOverlay.Graphic> extends View {
      */
     public List<T> getGraphics() {
         synchronized (lock) {
-            listAll.add(new MyTextBlock(graphic.getTextBlock()));
+            for (OcrGraphic graphic : graphics) {
+                listAll.add(new MyTextBlock(graphic.getTextBlock()));
+            }
             return new Vector(graphics);
         }
     }
