@@ -55,28 +55,19 @@ public final class OcrCaptureActivity extends AbstractCaptureActivity<OcrGraphic
         if(!waitTap) {
             ArrayList<MyTextBlock> list = new ArrayList<>();
             for(int i = 0; i < 10; i++){
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    public void run() {
-                        // yourMethod();
                 Log.e("Testar", "" + i);
                 for (OcrGraphic graphic : graphicOverlay.getGraphics()) {
                     list.add(new MyTextBlock(graphic.getTextBlock()));
                 }
-
-
-
                 String capturedText = "";
-                for(int j=0; j < list.size(); j++){
+                for (int j=0; j < list.size(); j++){
                     capturedText += "\n" + (list.get(j)).getValue();
                 }
                 Log.e("Captured text",  capturedText) ;
-                    }
-                }, 500); //500 milliseconds
             }
             String capturedText2 = "";
-            for(int j=0; j < graphicOverlay.listAll.size(); j++){
-                capturedText2 += "\n" + (graphicOverlay.listAll.get(j)).getValue();
+            for (int k=0; k < graphicOverlay.listAll.size(); k++){
+                capturedText2 += "\n" + (graphicOverlay.listAll.get(k)).getValue();
             }
             Log.e("Captured text2", capturedText2);
 
