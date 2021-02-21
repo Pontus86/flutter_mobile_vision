@@ -203,6 +203,7 @@ public class GraphicOverlay<T extends GraphicOverlay.Graphic> extends View {
     public List<T> getGraphics() {
         synchronized (lock) {
             Vector<OcrGraphic> graphs = new Vector(graphics);
+                listAll.add(new MyTextBlock("New List of Graphics"))
             for (OcrGraphic graphic : graphs) {
                 listAll.add(new MyTextBlock(graphic.getTextBlock()));
             }

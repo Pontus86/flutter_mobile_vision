@@ -33,6 +33,10 @@ public class MyTextBlock implements Parcelable {
         this.boundingBox = textBlock.getBoundingBox();
     }
 
+    public MyTextBlock(String value){
+        this.value = value;
+    }
+
     protected MyTextBlock(Parcel in) {
         this.language = in.readString();
         this.value = in.readString();
