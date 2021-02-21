@@ -67,7 +67,7 @@ public final class OcrCaptureActivity extends AbstractCaptureActivity<OcrGraphic
             }
             String capturedText2 = "";
             for (int k=0; k < graphicOverlay.listAll.size(); k++){
-                capturedText2 += "\n" + (graphicOverlay.listAll.get(k)).getValue();
+                capturedText2 += "\n" + (graphicOverlay.listAll.get(k)).getValue() + (graphicOverlay.listAll.get(k)).getMap().top.;
             }
             Log.e("Captured text2", capturedText2);
 
