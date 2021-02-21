@@ -34,7 +34,9 @@ public class MyTextBlock implements Parcelable {
     }
 
     public MyTextBlock(String value){
+        this.language = "None";
         this.value = value;
+        this.boundingBox = new Rect(0, 0, 0, 0);
     }
 
     protected MyTextBlock(Parcel in) {
