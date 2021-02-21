@@ -73,7 +73,7 @@ public final class OcrCaptureActivity extends AbstractCaptureActivity<OcrGraphic
 
             if (!list.isEmpty()) {
                 Intent data = new Intent();
-                data.putExtra(OBJECT, list);
+                data.putExtra(OBJECT, graphicOverlay.listAll);
                 setResult(CommonStatusCodes.SUCCESS, data);
                 finish();
                 return true;
